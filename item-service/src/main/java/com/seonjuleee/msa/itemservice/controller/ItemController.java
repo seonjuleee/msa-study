@@ -3,6 +3,7 @@ package com.seonjuleee.msa.itemservice.controller;
 import com.seonjuleee.msa.itemservice.constant.ItemType;
 import com.seonjuleee.msa.itemservice.dto.ItemDTO;
 import com.seonjuleee.msa.itemservice.dto.ResponseDTO;
+import com.seonjuleee.msa.itemservice.exception.ApiException;
 import com.seonjuleee.msa.itemservice.service.ItemService;
 import com.seonjuleee.msa.itemservice.valid.ItemTypeValid;
 import jakarta.validation.Valid;
@@ -23,7 +24,7 @@ public class ItemController {
 
     @RequestMapping(value = "/add/{itemType}", method = RequestMethod.POST)
     public ResponseEntity<ResponseDTO> add(@Valid @RequestBody ItemDTO itemDTO,
-                                           @ItemTypeValid @PathVariable String itemType) {
+                                           @ItemTypeValid @PathVariable String itemType) throws Exception {
         ResponseDTO.ResponseDTOBuilder responseBuilder = ResponseDTO.builder();
 
         itemDTO.setItemType(itemType);
