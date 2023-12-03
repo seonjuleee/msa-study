@@ -18,6 +18,8 @@ public class Item {
     private String name;
     @Column(name = "description", length = 30)
     private String description;
+    @Column(name = "item_type", length = 1)
+    private String itemType;
     @Column(name = "cnt", length = 10)
     private long count;
     @Column(name = "reg_dts", length = 14)
