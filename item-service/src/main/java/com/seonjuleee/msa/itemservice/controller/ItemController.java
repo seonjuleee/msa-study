@@ -3,6 +3,7 @@ package com.seonjuleee.msa.itemservice.controller;
 import com.seonjuleee.msa.itemservice.dto.ItemDTO;
 import com.seonjuleee.msa.itemservice.dto.ResponseDTO;
 import com.seonjuleee.msa.itemservice.service.ItemService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +21,7 @@ public class ItemController {
     private final ItemService itemService;
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public ResponseEntity<ResponseDTO> add(@RequestBody ItemDTO itemDTO) {
+    public ResponseEntity<ResponseDTO> add(@Valid @RequestBody ItemDTO itemDTO) {
         ResponseDTO.ResponseDTOBuilder responseBuilder = ResponseDTO.builder();
 
         itemService.insertItem(itemDTO);
