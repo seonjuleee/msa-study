@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: config-server
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          searchLocations: classpath:/config # 참조할 설정 파일 위치
+        encrypt:
+          enabled: false
+server:
+  port: 8080

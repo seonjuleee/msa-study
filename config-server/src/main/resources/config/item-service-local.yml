@@ -1,6 +1,6 @@
 logging:
   file:
-    name: 'logs/item.log'
+    name: 'logs/item-local.log'
     max-size: 500MB
     max-history: 10
   level:
@@ -30,3 +30,4 @@ springdoc:
     path: /swagger-ui.html
     disable-swagger-default-url: true # 불필요한 내용 비활성화
     display-query-params-without-oauth2: true # URL 쿼리 매개변수를 이용해 swagger-ui 처리 활성화
+
