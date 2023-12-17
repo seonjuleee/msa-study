@@ -11,3 +11,9 @@ spring:
     loadbalancer:
       ribbon:
         enabled: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, health, beans # refresh, 현재 상태 확인, bean 확인 설정
