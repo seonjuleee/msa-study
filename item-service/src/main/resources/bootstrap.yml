@@ -1,5 +1,5 @@
 server:
-  port: 5001
+  port: 0 # 랜덤 포트 설정
 spring:
   application:
     name: item-service

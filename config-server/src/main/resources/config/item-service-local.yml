@@ -36,6 +36,7 @@ token:
 
 eureka:
   instance:
+    instance-id: ${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}} # 호스트명과 랜덤포트를 합쳐 id 값으로 지정
     prefer-ip-address: true
   client:
     register-with-eureka: true

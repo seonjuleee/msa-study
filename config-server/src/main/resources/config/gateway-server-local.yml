@@ -1,0 +1,25 @@
+logging:
+  file:
+    name: 'logs/gateway-local.log'
+    max-size: 500MB
+    max-history: 10
+  level:
+    root: info
+    org.hibernate.SQL: debug  # logger? ?? Hibernate ?? SQL ???
+
+spring:
+  cloud:
+    gateway:
+      routes: # 라우팅 설정
+        - id: item-service # 식별 id
+          uri: lb://item-service # 이동할 마이크로서비스명
+          predicates: # 실제 요청 들어온 URI
+            - Path=/v1/item/**
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      default-zone: http://localhost:8761/eureka
