@@ -5,7 +5,7 @@ logging:
     max-history: 10
   level:
     root: info
-    org.hibernate.SQL: debug  # logger? ?? Hibernate ?? SQL ???
+    com.seonjuleee.gatewayserver: debug  # logger? ?? Hibernate ?? SQL ???
 
 spring:
   cloud:
@@ -15,6 +15,12 @@ spring:
           uri: lb://item-service # 이동할 마이크로서비스명
           predicates: # 실제 요청 들어온 URI
             - Path=/v1/item/**
+          filters:
+            - name: LoggingFilter
+              args:
+                baseMessage: Logging Filter start...
+                preLogger: true
+                postLogger: true
 eureka:
   instance:
     prefer-ip-address: true
