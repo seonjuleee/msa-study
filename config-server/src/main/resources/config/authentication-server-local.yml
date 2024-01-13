@@ -1,0 +1,31 @@
+logging:
+  file:
+    name: 'logs/authentication-local.log'
+    max-size: 500MB
+    max-history: 10
+  level:
+    root: info
+    com.seonjuleee.authentication-server: debug  # logger? ?? Hibernate ?? SQL ???
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+  datasource:
+    driver-class-name: org.h2.Driver
+    url:  jdbc:h2:tcp://localhost/~/msa-lecture
+    username: sa
+    password: '{cipher}a6885400fead81459792f29633359917eadfc834eb0292d17c591ce5046d55f3'
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      default-zone: http://localhost:8761/eureka
