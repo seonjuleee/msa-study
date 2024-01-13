@@ -8,18 +8,9 @@ logging:
     com.seonjuleee.authentication-server: debug  # logger? ?? Hibernate ?? SQL ???
 
 spring:
-  jpa:
-    hibernate:
-      ddl-auto: create
-    properties:
-      hibernate:
-        show_sql: true
-        format_sql: true
-  datasource:
-    driver-class-name: org.h2.Driver
-    url:  jdbc:h2:tcp://localhost/~/msa-lecture
-    username: sa
-    password: '{cipher}a6885400fead81459792f29633359917eadfc834eb0292d17c591ce5046d55f3'
+  config:
+    import:
+      - classpath:/config/datasource-local.yml
 
 eureka:
   instance:
