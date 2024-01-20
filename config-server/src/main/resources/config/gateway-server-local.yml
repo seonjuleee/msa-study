@@ -8,6 +8,10 @@ logging:
     com.seonjuleee.gatewayserver: debug  # logger? ?? Hibernate ?? SQL ???
 
 spring:
+  jpa:
+  config:
+    import:
+      - classpath:/config/datasource-local.yml
   cloud:
     gateway:
       routes: # 라우팅 설정
@@ -19,6 +23,11 @@ spring:
             - name: LoggingFilter
               args:
                 baseMessage: Logging Filter start...
+                preLogger: true
+                postLogger: true
+            - name: TokenCheckFilter
+              args:
+                baseMessage: Token Check Filter start...
                 preLogger: true
                 postLogger: true
 eureka:
