@@ -14,6 +14,8 @@ public class Item {
     @Id
     @Column(name = "item_id", length = 30)
     private String id;
+    @Column(name = "account_id")
+    private String accountId;
     @Column(name = "name", length = 30)
     private String name;
     @Column(name = "description", length = 30)

@@ -14,12 +14,13 @@ import java.util.Date;
 public class ItemService {
     private final ItemRepository itemRepository;
 
-    public void insertItem(ItemDTO itemDTO) {
+    public void insertItem(ItemDTO itemDTO, String accountId) {
         SimpleDateFormat form = new SimpleDateFormat("yyyyMMddHHmmss");
         String date = form.format(new Date()); // todo 나중에 LocalDateTime으로 변경하기
 
         Item item = Item.builder()
                 .id(itemDTO.getId())
+                .accountId(accountId)
                 .name(itemDTO.getName())
                 .description(itemDTO.getName())
                 .itemType(itemDTO.getItemType())
